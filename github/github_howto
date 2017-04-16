@@ -1,0 +1,15 @@
+Create git repository from command line
+
+echo "# my_python_tools" >> README.md
+git init
+git add README.md
+git commit -m "first commit"
+git remote add origin https://github.com/florian-j-kuehn/my_python_tools.git
+git push -u origin master
+
+
+
+Push existing repository to github
+
+git remote add origin https://github.com/florian-j-kuehn/my_python_tools.git
+git push -u origin master
