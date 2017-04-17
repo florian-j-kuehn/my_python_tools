@@ -22,6 +22,7 @@ import socket
 import sys
 from struct import *
 
+
 NAME = 'Sniffer'
 VERSION = '0.0.1'
 VERSIONSTR = '{} v. {}'.format(NAME, VERSION)
