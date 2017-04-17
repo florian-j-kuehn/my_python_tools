@@ -1,10 +1,15 @@
 #!/usr/local/bin/python3.6
 
-# Create new python file with minimum requirements.
-# Created by Florian Kuehn.
+
+"""
+ Create new python file with minimum requirements.
+ Created by Florian Kuehn.
+
+ While creating the directory we try to catch an exception if something is
+ wrong. Errors for already existing files are suppressed.
+"""
 
 
-# Import modules.
 import sys
 import os
 import errno
@@ -22,22 +27,19 @@ d_name = input('Input new dir: ')
 
 
 # Create directory if needed. Throw error exception.
-# Wait three seconds between check and creation.
-if not os.path.exists(d_name):
-    print('Wait ...')
-    time.sleep(2)
-    try:
-        print('Creating directory {}'.format(d_name))
-        os.makedirs(d_name)
-    except OSError as error:
-        if error.errno != errno.EEXIST:
-            raise
+# Wait two seconds before creation.
+try:
+    print('Creating directory {}'.format(d_name))
+    os.makedirs(d_name)
+except OSError as exception:
+    if exception.errno == errno.EEXIST:
+        sys.exit('There was an error creating the file.')
+        raise
 
 
-# Open file and write SHEBANG to it. Also print absolute file path to new file.
+# Open file and write SHEBANG to it. Also print absolute file path for new file.
 with open(os.path.join(d_name, f_file), 'w') as f:
     t = '#!/usr/local/bin/pydon3.6\n\n\n# Created by Florian Kuehn.'
     f.write(t)
-    # f.write('#!/usr/local/bin/python3.6')
     p_new = os.path.join(d_name, f_file)
-    print('Just created ...' + os.path.abspath(p_new))
+    print('File created ...' + os.path.abspath(p_new))
