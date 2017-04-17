@@ -1,4 +1,4 @@
-#!/usr/local/bin/pydon3.6
+#!/usr/local/bin/python3.6
 
 
 """ sniffer.py
@@ -17,7 +17,6 @@
 
 from docopt import docopt
 import os
-import sys
 import socket
 import sys
 from struct import *
